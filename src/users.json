@@ -1,0 +1,5 @@
+[
+  {"email": "admin@mergington.edu", "password": "adminpass", "role": "admin"},
+  {"email": "staff1@mergington.edu", "password": "staffpass1", "role": "staff"},
+  {"email": "student1@mergington.edu", "password": "studentpass1", "role": "student"}
+]
