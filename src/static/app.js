@@ -4,6 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signup-form");
   const messageDiv = document.getElementById("message");
 
+  // Authentication helper function
+  function getAuthHeaders() {
+    // For demo purposes, we'll use the student1 credentials
+    // In a real app, this would come from a login form
+    const username = "student1@mergington.edu";
+    const password = "studentpass1";
+    const credentials = btoa(`${username}:${password}`);
+    return {
+      'Authorization': `Basic ${credentials}`
+    };
+  }
+
   // Function to fetch activities from API
   async function fetchActivities() {
     try {
@@ -80,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )}/unregister?email=${encodeURIComponent(email)}`,
         {
           method: "DELETE",
+          headers: getAuthHeaders(),
         }
       );
 
@@ -124,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )}/signup?email=${encodeURIComponent(email)}`,
         {
           method: "POST",
+          headers: getAuthHeaders(),
         }
       );
 
